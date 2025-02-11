@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Link from "next/link";
+import { BlindsIcon, BookHeart, GalleryVerticalIcon } from "lucide-react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,9 +27,25 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gradient-to-r from-rose-100 to-teal-100`}
       >
+         
         {children}
+        <nav className="space-x-4 mt-6 flex items-center justify-center p-4">
+        <Link href="/" className="text-pink-600 hover:text-pink-800 transition-colors flex items-center gap-1">
+          <BlindsIcon className="w-4 h-4" />
+          Home
+        </Link>
+        <Link href="/gallery" className="text-pink-600 hover:text-pink-800 transition-colors flex items-center gap-1">
+          <GalleryVerticalIcon className="w-4 h-4" />
+          Gallery
+        </Link>
+        <Link href="/poem" className="text-pink-600 hover:text-pink-800 transition-colors flex items-center gap-1">
+          <BookHeart className="w-4 h-4" />
+          Poem
+        </Link>
+
+      </nav>
       </body>
     </html>
   );
