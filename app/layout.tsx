@@ -32,17 +32,22 @@ export default function RootLayout({
          
         {children}
         <nav className="space-x-4 mt-6 flex items-center justify-center p-4">
-        <Link href="/" className="text-pink-600 hover:text-pink-800 transition-colors flex items-center gap-1">
+        <Link href="/" className="d transition-colors flex items-center gap-1">
           <BlindsIcon className="w-4 h-4" />
           Home
         </Link>
-        <Link href="/gallery" className="text-pink-600 hover:text-pink-800 transition-colors flex items-center gap-1">
+        <Link href="/gallery" className="d transition-colors flex items-center gap-1">
           <GalleryVerticalIcon className="w-4 h-4" />
           Gallery
         </Link>
-        <Link href="/poem" className="text-pink-600 hover:text-pink-800 transition-colors flex items-center gap-1">
+        <Link href="/poem" className=" transition-colors flex items-center gap-1">
           <BookHeart className="w-4 h-4" />
           Poem
+        </Link>
+        
+          <Link href="/love-quizy" className=" transition-colors flex items-center gap-1">
+          <BookHeart className="w-4 h-4" />
+          Love Quiz
         </Link>
 
       </nav>

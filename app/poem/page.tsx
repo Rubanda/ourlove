@@ -1,72 +1,66 @@
 "use client"
-import { motion, useAnimation } from "framer-motion"
+import { motion } from "framer-motion"
 import Link from "next/link"
 import { useState, useEffect } from "react"
 
 const poem = [
-  "My Love",
-
-"Today marks another year of us, and I can’t let it pass without speaking from my heart.I know I’ve been too focused on serious things, forgetting to cherish the moments that matter most—like you.I see now how I pushed you away, and I’m truly sorry.",
-
-"You are my greatest gift, and I never want to lose the love we share.I want to bring back the spark, the laughter, and the joy we had.Please give me a chance to be better, to love you the way you deserve.",
-
-"Let this anniversary be a new beginning for us.I promise to treasure every moment with you.",
-
-"Happy Anniversary, my love.",
+  "In the tapestry of time, our love is a golden thread,",
+  "Weaving moments of joy, every word unsaid.",
+  "Through laughter and tears, our bond grows strong,",
+  "A melody of hearts, our eternal love song.",
+  "With every sunrise, my love for you renews,",
+  "In this journey of us, forever I choose.",
+  "Hand in hand, we'll walk this path together,",
+  "Our love story, a tale to treasure forever.",
 ]
-
 
 const emojis = ["❤️", "💖", "💕", "💘", "💓", "💗", "💞", "🎉", "🎊", "✨"]
 
 interface FloatingEmoji {
   id: number
   emoji: string
-  x: number
-  y: number
+  initialX: string
+  initialY: string
   scale: number
   rotation: number
 }
 
+const NUM_EMOJIS = 10
+
 export default function PoemPage() {
   const [floatingEmojis, setFloatingEmojis] = useState<FloatingEmoji[]>([])
-  const [dimensions, setDimensions] = useState({ width: 0, height: 0 })
 
   useEffect(() => {
-    const updateDimensions = () => {
-      setDimensions({ width: window.innerWidth, height: window.innerHeight })
-    }
-    updateDimensions()
-    window.addEventListener("resize", updateDimensions)
-    return () => window.removeEventListener("resize", updateDimensions)
+    const newEmojis = Array.from({ length: NUM_EMOJIS }, (_, index) => ({
+      id: index,
+      emoji: emojis[Math.floor(Math.random() * emojis.length)],
+      initialX: `${Math.random() * 100}%`,
+      initialY: `${Math.random() * 100}%`,
+      scale: 0.5 + Math.random() * 1.5,
+      rotation: Math.random() * 360,
+    }))
+    setFloatingEmojis(newEmojis)
   }, [])
-
-  useEffect(() => {
-    const createEmoji = () => {
-      const newEmoji: FloatingEmoji = {
-        id: Date.now(),
-        emoji: emojis[Math.floor(Math.random() * emojis.length)],
-        x: Math.random() * dimensions.width,
-        y: Math.random() * dimensions.height,
-        scale: 0.5 + Math.random() * 1.5,
-        rotation: Math.random() * 360,
-      }
-      setFloatingEmojis((prev) => [...prev, newEmoji])
-    }
-
-    const interval = setInterval(createEmoji, 2000)
-    return () => clearInterval(interval)
-  }, [dimensions])
-
-  useEffect(() => {
-    if (floatingEmojis.length > 15) {
-      setFloatingEmojis((prev) => prev.slice(1))
-    }
-  }, [floatingEmojis])
 
   return (
     <main className="min-h-screen flex flex-col items-center justify-center p-8 bg-gradient-to-r from-rose-100 to-teal-100 overflow-hidden">
       {floatingEmojis.map((emoji) => (
-        <FloatingEmoji key={emoji.id} emoji={emoji} dimensions={dimensions} />
+        <motion.div
+          key={emoji.id}
+          initial={{ x: emoji.initialX, y: emoji.initialY, scale: emoji.scale, rotate: emoji.rotation }}
+          animate={{
+            x: [`${Math.random() * 100}%`, `${Math.random() * 100}%`, `${Math.random() * 100}%`],
+            y: [`${Math.random() * 100}%`, `${Math.random() * 100}%`, `${Math.random() * 100}%`],
+          }}
+          transition={{
+            duration: 20 + Math.random() * 10,
+            repeat: Number.POSITIVE_INFINITY,
+            repeatType: "reverse",
+          }}
+          className="absolute text-4xl pointer-events-none"
+        >
+          {emoji.emoji}
+        </motion.div>
       ))}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -93,33 +87,6 @@ export default function PoemPage() {
         Back to Gallery
       </Link>
     </main>
-  )
-}
-
-function FloatingEmoji({ emoji, dimensions }: { emoji: FloatingEmoji; dimensions: { width: number; height: number } }) {
-  const controls = useAnimation()
-
-  useEffect(() => {
-    const animate = async () => {
-      while (true) {
-        await controls.start({
-          x: Math.random() * dimensions.width,
-          y: Math.random() * dimensions.height,
-          transition: { duration: 10, ease: "linear" },
-        })
-      }
-    }
-    animate()
-  }, [controls, dimensions])
-
-  return (
-    <motion.div
-      initial={{ x: emoji.x, y: emoji.y, scale: emoji.scale, rotate: emoji.rotation }}
-      animate={controls}
-      className="absolute text-4xl pointer-events-none"
-    >
-      {emoji.emoji}
-    </motion.div>
   )
 }
 
