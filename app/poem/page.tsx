@@ -4,15 +4,16 @@ import Link from "next/link"
 import { useState, useEffect } from "react"
 
 const poem = [
-  "In the tapestry of time, our love is a golden thread,",
-  "Weaving moments of joy, every word unsaid.",
-  "Through laughter and tears, our bond grows strong,",
-  "A melody of hearts, our eternal love song.",
-  "With every sunrise, my love for you renews,",
-  "In this journey of us, forever I choose.",
-  "Hand in hand, we'll walk this path together,",
-  "Our love story, a tale to treasure forever.",
-]
+  "One year together, our love's gentle bloom,",
+  "Your eyes shine like stars in the night's room.",
+  "Your smile is the dawn that fills up my day,",
+  "In your warm embrace, all worries fade away.",
+  "Your love is the melody that lifts my heart high,",
+  "In every shared moment, our spirits fly.",
+  "Hand in hand, we journey through life's art,",
+  "You, the most beautiful love, forever in my heart."
+];
+
 
 const emojis = ["❤️", "💖", "💕", "💘", "💓", "💗", "💞", "🎉", "🎊", "✨"]
 
@@ -84,7 +85,7 @@ export default function PoemPage() {
         </div>
       </motion.div>
       <Link href="/" className="mt-8 text-gray-600 hover:text-gray-800 transition-colors relative z-10">
-        Back to Gallery
+        Back to Home
       </Link>
     </main>
   )
