@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
 import { BlindsIcon, BookHeart, GalleryVerticalIcon } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,28 +30,24 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gradient-to-r from-rose-100 to-teal-100`}
       >
-         
-        {children}
-        <nav className="space-x-4 mt-6 flex items-center justify-center p-4">
-        <Link href="/" className="d transition-colors flex items-center gap-1">
-          <BlindsIcon className="w-4 h-4" />
-          Home
-        </Link>
-        <Link href="/gallery" className="d transition-colors flex items-center gap-1">
-          <GalleryVerticalIcon className="w-4 h-4" />
-          Gallery
-        </Link>
-        <Link href="/poem" className=" transition-colors flex items-center gap-1">
-          <BookHeart className="w-4 h-4" />
-          Poem
-        </Link>
-        
-          <Link href="/love-quizy" className=" transition-colors flex items-center gap-1">
-          <BookHeart className="w-4 h-4" />
-          Love Quiz
-        </Link>
 
-      </nav>
+        {children}
+
+        <div className="fixed bottom-8 right-8 space-x-4">
+          <Button asChild variant="ghost">
+            <a href="/">Home</a>
+          </Button>
+          <Button asChild variant="ghost">
+            <a href="/love-quizy">Game My love</a>
+          </Button>
+          <Button asChild variant="ghost">
+            <a href="/gallery">Gallery</a>
+          </Button>
+          <Button asChild variant="ghost">
+            <a href="/poem">Our Poem</a>
+          </Button>
+        </div>
+
       </body>
     </html>
   );
