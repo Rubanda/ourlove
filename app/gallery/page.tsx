@@ -1,8 +1,7 @@
 "use client"
 import Image from "next/image"
 import { motion } from "framer-motion"
-import Link from "next/link"
-import { BlindsIcon, BookHeart, GalleryVerticalIcon } from "lucide-react"
+
 // This would typically come from your cloud storage or API
 const photos = [
   { src: "/mo-os.webp", alt: "Our first date", caption: "Where it all began" },

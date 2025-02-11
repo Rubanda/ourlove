@@ -38,19 +38,19 @@ export default function Gallery() {
             animate={{ opacity: 1, scale: 1, rotate: getRandomRotation() }}
             transition={{ duration: 0.5, delay: index * 0.2 }}
             style={getRandomPosition()}
-            className={`absolute bg-white p-4 rounded shadow-lg w-64 transform hover:z-10 hover:scale-105 transition-all duration-200 ${item.type === "letter" ? "bg-yellow-100" : ""
+            className={`absolute bg-white p-4 rounded shadow-lg w-64 transform hover:z-10 hover:scale-105 transition-all duration-200 ${item?.type === "letter" ? "bg-yellow-100" : ""
               }`}
           >
-            {item.type === "photo" ? (
+            {item?.type === "photo" ? (
               <>
                 <div className="relative w-full aspect-[3/4] mb-2">
-                  <Image src={item.src || "/placeholder.svg"} alt={item.alt} fill className="rounded object-cover" />
+                  <Image src={item?.src || "/placeholder.svg"} alt={item?.alt!} fill className="rounded object-cover" />
                 </div>
-                <p className="text-center text-sm text-gray-600 font-handwriting">{item.caption}</p>
+                <p className="text-center text-sm text-gray-600 font-handwriting">{item?.caption}</p>
               </>
             ) : (
               <div className="h-full flex items-center">
-                <p className="text-sm text-gray-800 font-handwriting leading-relaxed">{item.content}</p>
+                <p className="text-sm text-gray-800 font-handwriting leading-relaxed">{item?.content}</p>
               </div>
             )}
           </motion.div>
