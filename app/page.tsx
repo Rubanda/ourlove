@@ -12,7 +12,15 @@ const memories = [
     type: "letter",
     content: "You are truly wonderful—your uplifting attitude and genuine kindness brighten every room and inspire everyone around you.",
   },
-  { type: "photo", src: "/mo-os2.JPG", alt: "Nice day", caption: "Amazing!" },
+  { type: "photo", src: "/proposal.JPG", alt: "Nice day", caption: "Amazing!" },
+
+  { type: "photo", src: "/mo-os1.JPG", alt: "Nice day", caption: "Amazing!" },
+  { type: "photo", src: "/os1.webp", alt: "Nice day", caption: "Amazing!" },
+  { type: "photo", src: "/os2.webp", alt: "Nice day", caption: "Amazing!" },
+  { type: "photo", src: "/os3.webp", alt: "Nice day", caption: "Amazing!" },
+  { type: "photo", src: "/mo-os5.JPG", alt: "Nice day", caption: "Amazing!" },
+  { type: "photo", src: "/mo-os6.jpg", alt: "Nice day", caption: "Amazing!" },
+  { type: "photo", src: "/mo-os7.webp", alt: "Nice day", caption: "Amazing!" },
   { type: "letter", content: "You have big, beautiful eyes that light up every room, revealing the wonder of your soul." },
   // Add more photos and letters as needed
 ]

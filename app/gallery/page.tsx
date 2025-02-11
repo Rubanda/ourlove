@@ -4,9 +4,13 @@ import { motion } from "framer-motion"
 
 // This would typically come from your cloud storage or API
 const photos = [
-  { src: "/mo-os.webp", alt: "Our first date", caption: "Where it all began" },
+  { src: "/mo-os.webp", alt: "Our first date", caption: "Nice" },
   { src: "/mo-os1.JPG", alt: "Vacation together", caption: "Exploring the world" },
-  { src: "/mo-os2.JPG", alt: "Engagement day", caption: "The day we said yes!" },
+  { src: "/os1.webp", alt: "Engagement day", caption: "Amazing!" },
+  { src: "/os2.webp", alt: "Nice day", caption: "Amazing!" },
+  {src: "/mo-os5.JPG", alt: "Wedding day", caption: "The best day of our lives"},
+  {src: "/mo-os6.JPG", alt: "Honeymoon", caption: "The beginning of forever"},
+  { src: "/mo-os7.webp", alt: "Nice day", caption: "Amazing!" },
   // Add more photos as needed
 ]
 
