@@ -5,15 +5,15 @@ import { BackgroundLines } from "@/components/ui/background-lines"
 
 // This would typically come from your cloud storage or API
 const memories = [
-  { type: "photo", src: "/mo-os.webp", alt: "Our first date", caption: "Where it all began" },
+  { type: "photo", src: "/mo-os.webp", alt: "Our first date", caption: "LOVE" },
   { type: "letter", content: "Dear love, I'll never forget the day we met. Your smile lit up the room..." },
-  { type: "photo", src: "/mo-os1.JPG", alt: "Vacation together", caption: "Exploring the world" },
+  { type: "photo", src: "/mo-os1.JPG", alt: "Vacation together", caption: "Great" },
   {
     type: "letter",
-    content: "Remember our first trip? The way you laughed at my terrible attempts to speak the local language...",
+    content: "You are truly wonderful—your uplifting attitude and genuine kindness brighten every room and inspire everyone around you.",
   },
-  { type: "photo", src: "/mo-os2.JPG", alt: "Engagement day", caption: "The day we said yes!" },
-  { type: "letter", content: "I was so nervous that day, but when I saw your face, all my doubts melted away..." },
+  { type: "photo", src: "/mo-os2.JPG", alt: "Nice day", caption: "Amazing!" },
+  { type: "letter", content: "You have big, beautiful eyes that light up every room, revealing the wonder of your soul." },
   // Add more photos and letters as needed
 ]
 
@@ -25,7 +25,7 @@ export default function Gallery() {
   })
 
   return (
-    <BackgroundLines className="flex flex-col items-center min-h-screen bg-gradient-to-r from-rose-100 to-teal-100 overflow-auto ">
+    <BackgroundLines className=" flex flex-col items-center min-h-screen bg-gradient-to-r from-rose-100 to-teal-100 ">
       <h1 className="text-4xl font-bold text-center text-gray-800 mb-12">Our Love Story</h1>
       <h2 className="text-lg md:text-4xl mb-4 text-black dark:text-white max-w-4xl">
         Moise & Osborn
